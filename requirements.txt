@@ -1,34 +1,8 @@
-
-# ──────────────────────────────────────────
-# FinanceRAG — Requirements
-# Python 3.10+
-# ──────────────────────────────────────────
-
-# Core LLM & RAG
+streamlit==1.35.0
 langchain==0.2.16
+langchain-openai==0.1.20
 langchain-community==0.2.16
-langchain-openai==0.1.25
 openai==1.43.0
-
-# Vector Store
 faiss-cpu==1.8.0
-
-# Document Processing
-pypdf==4.3.1
-
-# Frontend
-streamlit==1.38.0
-
-# Utilities
-python-dotenv==1.0.1
+pypdf==4.3.0
 tiktoken==0.7.0
-streamlit
-langchain
-langchain-openai
-langchain-community
-pypdf
-faiss-cpu
-tiktoken
-python-dotenv
-
-#version 1.1
