@@ -86,7 +86,9 @@ class VectorStoreManager:
     """Manages FAISS vector store creation and persistence."""
 
     def __init__(self, api_key: str):
-        self.embeddings = OpenAIEmbeddings(api_key=api_key)
+        # Set as environment variable — avoids Pydantic version conflicts
+        os.environ["OPENAI_API_KEY"] = api_key
+        self.embeddings = OpenAIEmbeddings()
         self.vector_store = None
 
     def build(self, documents: List[Document]) -> None:
@@ -130,11 +132,12 @@ class FinanceRAGPipeline:
     """
 
     def __init__(self, api_key: str, model: str = "gpt-3.5-turbo", temperature: float = 0.0):
+        # Set as environment variable — avoids Pydantic version conflicts
+        os.environ["OPENAI_API_KEY"] = api_key
         self.api_key = api_key
         self.processor = DocumentProcessor()
         self.vector_manager = VectorStoreManager(api_key)
         self.llm = ChatOpenAI(
-            api_key=api_key,
             model_name=model,
             temperature=temperature,
         )
@@ -207,3 +210,4 @@ class FinanceRAGPipeline:
         self.vector_manager.vector_store = None
         self.qa_chain = None
         self.document_count = 0
+        
