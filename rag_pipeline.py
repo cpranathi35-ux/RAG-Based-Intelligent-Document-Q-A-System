@@ -86,7 +86,7 @@ class VectorStoreManager:
     """Manages FAISS vector store creation and persistence."""
 
     def __init__(self, api_key: str):
-        self.embeddings = OpenAIEmbeddings(openai_api_key=api_key)
+        self.embeddings = OpenAIEmbeddings(api_key=api_key)
         self.vector_store = None
 
     def build(self, documents: List[Document]) -> None:
@@ -134,7 +134,7 @@ class FinanceRAGPipeline:
         self.processor = DocumentProcessor()
         self.vector_manager = VectorStoreManager(api_key)
         self.llm = ChatOpenAI(
-            openai_api_key=api_key,
+            api_key=api_key,
             model_name=model,
             temperature=temperature,
         )
