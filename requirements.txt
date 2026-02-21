@@ -30,3 +30,5 @@ pypdf
 faiss-cpu
 tiktoken
 python-dotenv
+
+#version 1.1
