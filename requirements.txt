@@ -22,3 +22,11 @@ streamlit==1.38.0
 # Utilities
 python-dotenv==1.0.1
 tiktoken==0.7.0
+streamlit
+langchain
+langchain-openai
+langchain-community
+pypdf
+faiss-cpu
+tiktoken
+python-dotenv
